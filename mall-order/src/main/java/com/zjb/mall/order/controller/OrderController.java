@@ -1,19 +1,20 @@
 package com.zjb.mall.order.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
+import com.zjb.common.utils.PageUtils;
+import com.zjb.common.utils.R;
+import com.zjb.mall.order.entity.OrderEntity;
+import com.zjb.mall.order.fegin.ProductService;
+import com.zjb.mall.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zjb.mall.order.entity.OrderEntity;
-import com.zjb.mall.order.service.OrderService;
-import com.zjb.common.utils.PageUtils;
-import com.zjb.common.utils.R;
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -29,6 +30,17 @@ import com.zjb.common.utils.R;
 public class OrderController {
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    ProductService productService;
+
+    @GetMapping("/products")
+    public R queryProduct(){
+        // OpenFegin 远程调用服务
+        return R.ok().put("products",productService.queryAllBrand());
+    }
+
+
 
     /**
      * 列表
