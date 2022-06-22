@@ -6,12 +6,14 @@ import com.zjb.mall.order.entity.OrderEntity;
 import com.zjb.mall.order.fegin.ProductService;
 import com.zjb.mall.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -25,6 +27,7 @@ import java.util.Map;
  * @email 757511020@qq.com
  * @date 2022-06-21 10:32:25
  */
+@RequestScope
 @RestController
 @RequestMapping("order/order")
 public class OrderController {
@@ -40,6 +43,15 @@ public class OrderController {
         return R.ok().put("products",productService.queryAllBrand());
     }
 
+    @Value("${user.username}")
+    private String userName;
+    @Value("${user.age}")
+    private Integer age;
+
+    @GetMapping("/users")
+    public R queryUser(){
+        return R.ok().put("userName",userName).put("age",age);
+    }
 
 
     /**

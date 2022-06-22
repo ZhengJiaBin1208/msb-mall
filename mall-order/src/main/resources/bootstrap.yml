@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: mall-order
+  cloud:
+    nacos:
+      config:
+        server-addr: 47.94.184.216:8848
+        # 指定使用的命名空间
+        namespace: ee5d597a-3fdd-4749-910a-d4e97911927c
+        # 指定对应的配置组
+        group: prod
+        ext-config[0]:
+          data-id: mybatis.yml
+          group: prod
+          refresh: false
+        ext-config[1]:
+          data-id: datasource.yml
+          group: prod
+          refresh: false
+        ext-config[2]:
+          data-id: other.yml
+          group: prod
+          refresh: false
