@@ -9,6 +9,8 @@ spring:
     nacos:
       discovery:
         server-addr: 47.94.184.216:8848
+      config:
+        enabled: false
   application:
     name: mall-product
 mybatis-plus:

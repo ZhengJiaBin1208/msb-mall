@@ -41,6 +41,10 @@ spring:
       matching-strategy: ANT_PATH_MATCHER
 #  resources:
 #    add-mappings: false
+  cloud:
+    nacos:
+      discovery:
+        server-addr:
 
 
 #mybatis
