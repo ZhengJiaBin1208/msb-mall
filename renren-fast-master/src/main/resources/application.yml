@@ -44,7 +44,9 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr:
+        server-addr: 47.94.184.216:8848
+  application:
+    name: renren-fast
 
 
 #mybatis
