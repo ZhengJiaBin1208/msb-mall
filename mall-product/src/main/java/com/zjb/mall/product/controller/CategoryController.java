@@ -83,8 +83,9 @@ public class CategoryController {
      */
     @RequestMapping("/delete")
     public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
-
+//		categoryService.removeByIds(Arrays.asList(catIds));
+        // 逻辑批量删除
+        categoryService.removeCateggoryByIds(Arrays.asList(catIds));
         return R.ok();
     }
 

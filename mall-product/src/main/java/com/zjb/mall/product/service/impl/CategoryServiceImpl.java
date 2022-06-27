@@ -65,7 +65,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     private List<CategoryEntity> getCategoryChildrens(CategoryEntity categoryEntity, List<CategoryEntity> categoryEntities) {
         List<CategoryEntity> collect = categoryEntities.stream().filter(entity -> {
             // 根据大类找到他的直属小类
-            return entity.getParentCid() == categoryEntity.getCatId();
+            return entity.getParentCid().equals(categoryEntity.getCatId());
         }).map(entity -> {
             // 根据这个小类递归找到对应的小小类
             entity.setChildrens(getCategoryChildrens(entity, categoryEntities));
@@ -74,6 +74,23 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
             return (entity1.getSort() == null ? 0 : entity1.getSort()) - (entity2.getSort() == null ? 0 : entity2.getSort());
         }).collect(Collectors.toList());
         return collect;
+    }
+
+
+
+    /**
+     * @author zhengjiabin
+     * @description 逻辑批量删除
+     * @date 2022/6/27 11:03
+     * @param ids
+     * @return void
+     **/
+    @Override
+    public void removeCateggoryByIds(List<Long> ids) {
+        // TODO 1.检查类别数据是否在其他业务中使用
+
+        // 2.批量逻辑删除操作
+        baseMapper.deleteBatchIds(ids);
     }
 
 }
