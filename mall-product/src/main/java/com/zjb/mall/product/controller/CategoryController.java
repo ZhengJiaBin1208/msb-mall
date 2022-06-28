@@ -78,6 +78,22 @@ public class CategoryController {
         return R.ok();
     }
 
+
+    /**
+     * @author zhengjiabin
+     * @description 批量修改
+     * @date 2022/6/28 15:05
+     * @param category
+     * @return com.zjb.common.utils.R
+     **/
+    @RequestMapping("/updateBatch")
+    public R updateBatch(@RequestBody CategoryEntity[] category){
+
+        categoryService.updateBatchById(Arrays.asList(category));
+        return R.ok();
+    }
+
+
     /**
      * 删除
      */
