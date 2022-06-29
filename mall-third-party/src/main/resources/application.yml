@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.94.184.216:8848
+    alicloud:
+      access-key: LTAI5tLjRy1Quj5xfZRJ64iT
+      secret-key: FfQNUEpTOMfegxy3q4pZAqxJP7HQAS
+      oss:
+        endpoint: oss-cn-beijing.aliyuncs.com
+        bucket: zjb-mall
+
+      edas:
+        application-name: mall-third
+server:
+  port: 8090

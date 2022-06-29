@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: mall-third
+  cloud:
+    nacos:
+      config:
+        server-addr: 47.94.184.216:8848
