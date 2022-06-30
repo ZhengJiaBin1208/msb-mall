@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.URL;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
@@ -55,7 +56,7 @@ public class BrandEntity implements Serializable {
 	/**
 	 * 排序
 	 */
-	@NotBlank(message = "排序不能为空")
+	@NotNull(message = "排序不能为空")
 	@Min(value = 0,message = "排序不能小于0")
 	private Integer sort;
 
